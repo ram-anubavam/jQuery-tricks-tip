@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DOM manipulation - jQuery Tips by haRISH</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="header">
+<a href="http://anubavam.com/" id="logo"><img src="Images/anubavam-logo.png" alt="My Company" /></a> 
+<div class="headerTitle">
+<h1>jQuery Tips</h1> <h4> - $ will do everything for us</h4>
+</div>
+<ul>
+<li><a href="1LoadFromCDN.html">Load jQuery</a> |</li>
+<li><a href="2noConflict.html">No Conflict</a> |</li>
+<li><a href="3OnloadvsReady.html">Onload VS Ready</a> |</li>
+<li><a href="4selectors.html">Selectors</a> |</li>
+<li><a href="5chaining.html">Chaining</a> |</li>
+<li><a href="6Caching.html">Caching</a> |</li>
+<li><a href="7ClickvsBindvsLive.html">Click vs Bind vs Live</a> |</li>
+<li><a href="8DOM-manipulation.html">DOM manipulation</a> |</li>
+<li><a href="9this-THIS.html">Use this and $(this)</a> |</li>
+<li><a href="10data.html">Data</a> |</li>
+</ul>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<div class="content">
+<h2>DOM manipulation</h2>
+<div id="ContatcsDiv" style="width:250px;float:left;margin:0px 25px;">
+
+</div>
+<div id="ContatcsDiv1" style="width:250px;float:left;margin:0px 25px;">
+
+</div>
+<div id="ContatcsDiv2" style="width:250px;float:left;margin:0px 25px;">
+
+</div>
+<div id="TotalTime" style="clear:both;"></div>
+</div>
+<div class="footer">
+<span style="font-size:30px;color:#1270bb;">By </span>
+<span style="color:#5c5d60">Naga Ha</span><b style="color:#ee481d">RISH</b><br/ />
+<a href="http://shareourideas.com/">ShareOurIdeas.com</a><br />
+@nagaharishmovva
+</div>
+<!--Tip:- Try to place script files and code last and CSS files in head-->
+<script id="ContatcsTemplate" type="text/x-jquery-tmpl">
+    <div class="contact"><b>Name: </b> ${Name} <br/>
+    ${Email}<br/>
+    <a href="mailto:${Email}">${Email}</a><br/>
+    ${Phone} DOB:   ${DOB}
+    <hr/>
+    </div>
+</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>    
+    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var contacts = [
+                            { Name: "My Contact", Email: "harish@anubavam.com", Phone: "1234567890", DOB: "29th Feb 19XX" },
+                            { Name: "Ram", Email: "ramkumar@anubavam.com", Phone: "9876543210", DOB: "30th JUNE 19XX" },
+                            { Name: "Baki", Email: "bakiya@anubavam.com", Phone: "1112223334", DOB: "14th Oct 19XX" },
+                            { Name: "Bill Gates", Email: "billgates@microsoft.com", Phone: "123451XXXX", DOB: "31th JUNE 1965" },
+                            { Name: "Steve Jobs", Email: "stevejobs@apple.com", Phone: "XXXX12345", DOB: "31th Apr 1960" },
+                            { Name: "Kajal Aggarwal", Email: "kajal@_ollywood.com", Phone: "XXXXXXXXXX", DOB: "19th Jun 1985" }
+                        ];
+
+
+            /********** With full DOM manipulation ***********/
+            var start = new Date();
+            var contatcsDiv = $("#ContatcsDiv");
+            $.each(contacts, function (i, contact) {
+                var content = '<div class="contact"><b>Name: </b>' + contact.Name + '<br/>';
+                //content += contact.Email + '<br/>';
+                content += '<a href="mailto:' + contact.Email + '">' + contact.Email + '</a><br/>';
+                content += contact.Phone + " DOB: " + contact.DOB + "<hr/></div>";
+                contatcsDiv.append(content);
+            });
+            end = new Date();
+            $("#TotalTime").html("Without caching: Total in milliseconds (With more DOM): " + (end - start));
+
+
+            /********** Without full DOM manipulation **********/
+                   start = new Date();
+                   contatcsDiv = $("#ContatcsDiv1");
+                   var content = "";
+                   $.each(contacts, function (i, contact) {
+                       content += '<div class="contact"><b>Name: </b>' + contact.Name + '<br/>';
+                       //content += contact.Email + '<br/>';
+                       content += '<a href="mailto:' + contact.Email + '">' + contact.Email + '</a><br/>';
+                       content += contact.Phone + " DOB: " + contact.DOB + "<hr/></div>";
+
+                    });
+                   contatcsDiv.append(content);
+                    end = new Date();
+                    $("#TotalTime").html($("#TotalTime").html()+"<br/>Without caching: Total in milliseconds (With less DOM): " + (end - start));
+
+            /********** Using Template **********/
+
+                   start = new Date();
+                   $("#ContatcsTemplate").tmpl(contacts).appendTo("#ContatcsDiv2");
+                    end = new Date();
+                    $("#TotalTime").html($("#TotalTime").html() + "<br/>Without caching: Total in milliseconds (with Template): " + (end - start));
+
+            /********** Using dynamic Template **********/
+            //$.template('ContatcsTemplate', '<div class="contact"><b>Name: </b> ${Name} <br/><a href="mailto:${Email}">${Email}</a><br/>${Phone} DOB:   ${DOB}<hr/></div>');
+            //$.tmpl('ContatcsTemplate', contacts).appendTo('#ContatcsDiv2');
+
+        }); 
+</script>
+</body>
+</html>

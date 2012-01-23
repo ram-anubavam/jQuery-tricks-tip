@@ -1,0 +1,18 @@
+﻿html{background:#fff url('Images/body_bg.png') no-repeat top center;color:#5C5D60;}
+body{width:970px;margin:0px auto;}
+a{color:#1270bb;text-decoration:none;}
+a:hover{color:#ee481d;}
+.header{height:130px;padding:3px}
+#logo{float:left;}
+.header img{border-width:0px;}
+.headerTitle{float:right;width:500px;}
+.header h1{color:#1270bb;font-size:35px;margin:5px 0px;}
+.header h4{color:#5c5d60;padding-left:40px;}
+.header ul{margin:0px;clear:both;display:block;list-style-type:none;padding:0px;}
+.header ul li{margin:4px;padding:5px;font-weight:bold;float:left;}
+.header ul li a{font-size: 12px;font-weight: bold;}
+.content{padding:10px;min-height:550px;clear:both;}
+.footer{padding:10px;text-align:right;}
+#TotalTime{color:#ee481d;font-size:30px;}
+.selected{font-weight:bold;color:#ee481d;}
+.list{font-size:18px;cursor:pointer;}

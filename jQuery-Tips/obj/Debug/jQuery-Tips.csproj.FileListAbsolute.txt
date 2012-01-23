@@ -1,0 +1,10 @@
+D:\jQuery-Tips\jQuery-Tips\bin\jQuery-Tips.dll
+D:\jQuery-Tips\jQuery-Tips\bin\jQuery-Tips.pdb
+D:\jQuery-Tips\jQuery-Tips\obj\Debug\ResolveAssemblyReference.cache
+D:\jQuery-Tips\jQuery-Tips\obj\Debug\jQuery-Tips.dll
+D:\jQuery-Tips\jQuery-Tips\obj\Debug\jQuery-Tips.pdb
+E:\Dropbox\Myown\jQuery-Tips\jQuery-Tips\bin\jQuery-Tips.dll
+E:\Dropbox\Myown\jQuery-Tips\jQuery-Tips\bin\jQuery-Tips.pdb
+E:\Dropbox\Myown\jQuery-Tips\jQuery-Tips\obj\Debug\ResolveAssemblyReference.cache
+E:\Dropbox\Myown\jQuery-Tips\jQuery-Tips\obj\Debug\jQuery-Tips.dll
+E:\Dropbox\Myown\jQuery-Tips\jQuery-Tips\obj\Debug\jQuery-Tips.pdb
